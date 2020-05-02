@@ -1,6 +1,6 @@
 # i18nTranslatorForJsonTemplates
 
-An i18n like translator for json templates(typescript/javascript)
+An i18n like translator for json templates(typescript/javascript).
 
 this package has been developed for cases which you want to use a feature like i18n but on json templates which will be fetched from server like
 json schema form generators like below example(note:you can use {{}} or any other tags like t() for templateing):
@@ -26,7 +26,7 @@ json schema form generators like below example(note:you can use {{}} or any othe
 </pre>
 
 <pre>
-import i18nTranslatorForJsonTemplates from "i18nTranslatorForJsonTemplates";
+import i18nTranslatorForJsonTemplates from "i18n-translator-for-json-templates";
 const result = i18nTranslatorForJsonTemplates(lang, template);
 console.log(JSON.stringify(result));
 /*output
@@ -52,3 +52,4 @@ i18nTranslatorForJsonTemplates = (
   end_of_pattern = '}}',
 ) => string
 </pre>
+
