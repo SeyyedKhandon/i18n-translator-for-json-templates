@@ -1,0 +1,19 @@
+{
+  "name": "i18n-translator-for-json-templates",
+  "version": "1.0.0",
+  "description": "An i18n like translator for json templates",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeyyedKhandon/i18n-translator-for-json-templates.git"
+  },
+  "author": "Seyyed mahdi hassanpour",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeyyedKhandon/i18n-translator-for-json-templates/issues"
+  },
+  "homepage": "https://github.com/SeyyedKhandon/i18n-translator-for-json-templates#readme"
+}
