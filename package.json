@@ -4,8 +4,12 @@
   "description": "An i18n like translator for json templates",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json"
   },
+  "files": ["lib/**/*"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SeyyedKhandon/i18n-translator-for-json-templates.git"
@@ -15,5 +19,16 @@
   "bugs": {
     "url": "https://github.com/SeyyedKhandon/i18n-translator-for-json-templates/issues"
   },
-  "homepage": "https://github.com/SeyyedKhandon/i18n-translator-for-json-templates#readme"
+  "homepage": "https://github.com/SeyyedKhandon/i18n-translator-for-json-templates#readme",
+  "devDependencies": {
+    "@types/lodash": "^4.14.150",
+    "@types/node": "^13.13.4",
+    "prettier": "^2.0.5",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
 }
