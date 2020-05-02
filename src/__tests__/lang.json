@@ -1,0 +1,49 @@
+{
+  "command": {
+    "instance": {
+      "specification": {
+        "platformType": "Android",
+        "description": "Command Schema For 'Company Owned/Business Only'",
+        "label": "COBO3"
+      },
+      "root": {
+        "device_alarm": {
+          "title": "Wake up device remotely.",
+          "description": "An Alarm will be raised on the mobile device, even if the device is turned into silent mode. This will be put off, once the device is unlocked. Are you sure you want to continue?",
+          "tips": {
+            "info": {
+              "title": "Wake up device remotely.",
+              "description": ""
+            },
+            "os": {
+              "title": "Android Nougat",
+              "description": "Android v7.0"
+            }
+          },
+          "args": {
+            "inputField": {
+              "timestampz": {
+                "title": "Alarm",
+                "labelValuePairs": {
+                  "first": {
+                    "label": "Now",
+                    "hints": "If you want to set alarm immediately, so don't change the default value and enable immediate option."
+                  }
+                }
+              },
+              "force": {
+                "title": "Immediate alarm",
+                "labelValuePairs": {
+                  "first": {
+                    "label": "Enable",
+                    "hints": "If you want to make the phone show the alarm even if it has been passed, so set this true."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
