@@ -2,13 +2,24 @@
   "name": "i18n-translator-for-json-templates",
   "version": "1.0.0",
   "description": "An i18n like translator for json templates",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "tslint -p tsconfig.json"
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
+  "keywords": [
+    "i18n translator for json templates",
+    "i18n",
+    "translator",
+    "json",
+    "template"
+  ],
   "files": [
     "lib/**/*"
   ],

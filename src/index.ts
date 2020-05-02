@@ -12,7 +12,7 @@ export const util_findFirstMatchByPattern = (...args: any): string => {
   let result = util_findMatchesByPattern(...args);
   return result.length > 0 ? result[0] : '';
 };
-export const i18nTranslatorForJsonTemplates = (
+const i18nTranslatorForJsonTemplates = (
   language_json: any,
   template_json: any,
   start_of_pattern = '{{',
@@ -38,3 +38,5 @@ export const i18nTranslatorForJsonTemplates = (
     JSON.parse,
   )(template_json);
 };
+
+export default i18nTranslatorForJsonTemplates;

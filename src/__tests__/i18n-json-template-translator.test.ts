@@ -1,4 +1,4 @@
-import { i18nTranslatorForJsonTemplates } from '../index';
+import i18nTranslatorForJsonTemplates from '../index';
 const lang = require('./lang.json');
 const template = require('./json_template.json');
 const result = require('./result.json');
