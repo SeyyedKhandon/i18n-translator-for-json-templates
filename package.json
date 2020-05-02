@@ -1,6 +1,6 @@
 {
   "name": "i18n-translator-for-json-templates",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An i18n like translator for json templates",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
