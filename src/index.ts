@@ -4,39 +4,35 @@
   email:seyyedkhandon@gmail.com
 */
 
-const { reduce, pipe, drop, dropRight, join, path, replace } = require('lodash/fp');
-export const util_findMatchesByPattern = (text: string = '', pattern: RegExp = /(.?)*/): string[] =>
-  text.match(pattern) || [];
-
-export const util_findFirstMatchByPattern = (...args: any): string => {
-  let result = util_findMatchesByPattern(...args);
-  return result.length > 0 ? result[0] : '';
-};
+const path = require('lodash/fp/path');
+const prepareRegexPattern = (start: string, end: string) => new RegExp(`${start}[\\w.]+${end}`);
+const preparePatternRemoverFromText = (start: string, end: string) => (text: string) =>
+  text.slice(start.length, text.length - end.length);
 const i18nTranslatorForJsonTemplates = (
   language_json: any,
   template_json: any,
   start_of_pattern = '{{',
   end_of_pattern = '}}',
 ) => {
-  const stringTemplate = JSON.stringify(template_json);
-  const findAllSubstitutionTemplates = (text: string) =>
-    util_findMatchesByPattern(text, new RegExp(`${start_of_pattern}[\\w.]+${end_of_pattern}`, 'g'));
-  const useSubstitution = (init: string, array: string[]) =>
-    reduce((acc: string, curr: string) => {
-      return pipe(
-        drop(start_of_pattern.length),
-        dropRight(end_of_pattern.length),
-        join(''),
-        (_: string) => path(_, language_json),
-        (_: string) => replace(curr, _, acc),
-      )(curr);
-    }, init)(array);
-  return pipe(
-    JSON.stringify,
-    findAllSubstitutionTemplates,
-    (templates: string[]) => useSubstitution(stringTemplate, templates),
-    JSON.parse,
-  )(template_json);
+  const pattern = prepareRegexPattern(start_of_pattern, end_of_pattern);
+  const patternRemover = preparePatternRemoverFromText(start_of_pattern, end_of_pattern);
+  const dfs = (tree: any) => {
+    if (typeof tree === 'object') {
+      Object.keys(tree).forEach((key: string) => {
+        tree[key] = dfs(tree[key]);
+      });
+    } else if (Array.isArray(tree)) {
+      tree.forEach((branch: any, index: number) => {
+        tree[index] = dfs(branch);
+      });
+    } else if (typeof tree === 'string') {
+      if (tree.match(pattern)) {
+        tree = path(patternRemover(tree), language_json);
+      }
+    }
+    return tree;
+  };
+  return dfs(template_json);
 };
 
 export default i18nTranslatorForJsonTemplates;
