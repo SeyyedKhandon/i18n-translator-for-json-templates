@@ -38,7 +38,7 @@ const R = require('ramda');
 const prepareRegexPattern = (start: string, end: string) => new RegExp(`${start}[\\w.]+${end}`);
 const preparePatternRemoverFromText = (start: string, end: string) =>
   R.pipe(R.drop(start.length), R.dropLast(end.length));
-const path = R.curry((keys: string, obj: any) => R.pipe(R.split('.'), R.path(keys, obj)));
+const path = (obj: any) => R.pipe(R.split('.'), R.path(R.__, obj));
 const i18nTranslatorForJsonTemplates2 = (
   language_json: any,
   template_json: any,
@@ -54,7 +54,7 @@ const i18nTranslatorForJsonTemplates2 = (
         return R.map(dfs, tree);
       case 'String':
         if (tree.match(pattern)) {
-          return R.pipe(patternRemover, R.split('.'), (_: string) => R.path(_, language_json))(tree);
+          return R.pipe(patternRemover, path(language_json))(tree);
         }
         break;
       default:
