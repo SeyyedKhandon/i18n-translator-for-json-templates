@@ -39,7 +39,7 @@ const prepareRegexPattern = (start: string, end: string) => new RegExp(`${start}
 const preparePatternRemoverFromText = (start: string, end: string) =>
   R.pipe(R.drop(start.length), R.dropLast(end.length));
 const path = (obj: any) => R.pipe(R.split('.'), R.path(R.__, obj));
-const i18nTranslatorForJsonTemplates2 = (
+const i18nTranslatorForJsonTemplates = (
   language_json: any,
   template_json: any,
   start_of_pattern = '{{',
@@ -53,16 +53,12 @@ const i18nTranslatorForJsonTemplates2 = (
       case 'Array':
         return R.map(dfs, tree);
       case 'String':
-        if (tree.match(pattern)) {
-          return R.pipe(patternRemover, path(language_json))(tree);
-        }
-        break;
+        return R.when(R.test(pattern), R.pipe(patternRemover, path(language_json)))(tree);
       default:
         return tree;
     }
-    return tree;
   };
   return dfs(template_json);
 };
 
-export default i18nTranslatorForJsonTemplates2;
+export default i18nTranslatorForJsonTemplates;
