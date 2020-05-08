@@ -1,4 +1,4 @@
-<div dir="rtl" align="right">
+<div dir="auto" align="right">
 	
 بسم الله الرحمن الرحیم 
 
