@@ -1,3 +1,4 @@
+<divdir="rtl" align="right">
 	
 بسم الله الرحمن الرحیم 
 
@@ -151,5 +152,9 @@ const preparePatternRemoverFromText = (start: string, end: string) =>
 سوالی داشتین اگر بلد بودم در خدمتم.
 
 
+
 در پناه الله
 
+
+
+</div>
