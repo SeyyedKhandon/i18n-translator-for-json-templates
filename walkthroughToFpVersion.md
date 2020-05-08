@@ -24,7 +24,7 @@
 
 ![](images/1.png)
 
-<div align="left">
+
 ```
 /*
 	Package Name: i18n-translator-for-json-templates
@@ -63,7 +63,7 @@ const i18nTranslatorForJsonTemplates = (
 };
 ```
 
-</div>
+
 
 **گام اول:(drop, dropLast)**
 
