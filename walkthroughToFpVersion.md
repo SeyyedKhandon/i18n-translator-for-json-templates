@@ -75,23 +75,31 @@ const i18nTranslatorForJsonTemplates = (
 ```
 
 
+<div dir="rtl" align="right">
 
 **گام اول:(drop, dropLast)**
 
 خب اولین گامم این بود که سایت ramda رو باز کنم و توش بخونم ببینم چه چیزهایی داره که من میتونم با کد خودم عوض کنم، خب اول از همه من دنبال یه چیزی بودم که بتونم باهاش اول واخر یک رشته رو حذف کنم یعنی بتونم با این تکه کد جایگزینش کنم:
+
+</div>
 
 ```
 const preparePatternRemoverFromText = (start: string, end: string) => (text: string) =>
   text.slice(start.length, text.length - end.length);
 ```
 
+<div dir="rtl" align="right">
+
 که متوجه شدم، رامدا یه چیز باحال به نام drop, droplast داره که باهاش میشه اینکار وکرد، بنابراین اومدم جای فانکشن بالا فانکشن زیر رو استفاده کردم: که یعنی ابتدای و انتهای رشته رو بگیره و حذفشون کن به همین سادگی(تو اینجا ما میخواهیم که اون علامت های سیبیل رو از رشتمون حذف کنیم تا بتونیم بعدا ازش استفاده کنیم)
+
+</div>
 
 ```
 const preparePatternRemoverFromText = (start: string, end: string) =>
   R.pipe(R.drop(start.length), R.dropLast(end.length));
 ```
 
+<div dir="rtl" align="right">
 
 خب میبینیم که یک قدم پیش رفتیم به سمت Descriptive شدن، یعنی بجای اینکه بگیم چطوری از اول و اخر حذف کن گفتیم که من میخوام nتای اول  ,mتای  اخر رو حذف کنی کار ندارم چطوری(تو حالت قبلی باید خودمونن محاسبه میکردم طول  و منها میکردیم و میگفتیم حالا از اینجا بیاد تا اینجا رو حذف کن و..)
 
@@ -100,10 +108,16 @@ const preparePatternRemoverFromText = (start: string, end: string) =>
 
 با خودم گفتم بهتره که بیام immutableش کنم تا ابجکت اصلی template_json  که از بیرون میاد مستقیم تغییر نکنه و یکمی هم کد رو مرتب تر کنیم با عوض کردن if با switch، دیدم که رامدا برای اینکار دوتا فانکشن خوب داره یکی R.clone که توسطش میایم یک نسخه کامل کپی میگیره از آبچکت اصلی و با R.type هم تایپ ها رو تشخیص میدیم که خلاصه تر و شکیل تر بشه پس تکه کدمون به صورت زیر شد. 
 
+</div>
+
+
 ![](images/2.png)
 
+<div dir="rtl" align="right">
 
 علاوه بر اون من میخواستم که بجای تابع path لودش از تابع path رامدا استفاده کنم،(تابع path کارش اینه که شما بهش یک مسیر میدی مثلا "dashboard.statistics.cell.type"، و یک object تو درتو که مثلا به صورت زیر هست
+
+</div>
 
 ```
 {
