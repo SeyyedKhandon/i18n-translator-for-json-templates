@@ -1,6 +1,6 @@
 {
   "name": "i18n-translator-for-json-templates",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An i18n like translator for json templates",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -35,18 +35,18 @@
   "homepage": "https://github.com/SeyyedKhandon/i18n-translator-for-json-templates#readme",
   "devDependencies": {
     "@types/jest": "^25.2.1",
-    "@types/lodash": "^4.14.150",
     "@types/node": "^13.13.4",
+    "@types/ramda": "^0.27.4",
+    "eslint": "^7.0.0",
+    "eslint-plugin-lodash-fp": "^2.2.0-a1",
     "jest": "^25.5.4",
     "prettier": "^2.0.5",
     "ts-jest": "^25.4.0",
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.8.3",
-    "@types/ramda": "^0.27.4"
+    "typescript": "^3.8.3"
   },
   "dependencies": {
-    "lodash": "^4.17.15",
     "ramda": "^0.27.0"
   }
 }
