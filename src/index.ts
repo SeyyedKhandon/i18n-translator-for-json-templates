@@ -13,6 +13,7 @@ const i18nTranslatorForJsonTemplates = (
   template_json: any,
   start_of_pattern = '{{',
   end_of_pattern = '}}',
+  show_tree = true
 ) => {
   const pattern = prepareRegexPattern(start_of_pattern, end_of_pattern);
   const patternRemover = preparePatternRemoverFromText(start_of_pattern, end_of_pattern);
@@ -21,8 +22,11 @@ const i18nTranslatorForJsonTemplates = (
       case 'Object':
       case 'Array':
         return R.map(dfs, tree);
-      case 'String':
-        if (tree.match(pattern)) return path(language_json)(patternRemover(tree));
+      case 'String': show_tree ? undefined : ""
+        if (tree.match(pattern)) {
+          const result = path(language_json)(patternRemover(tree));
+          return result !== undefined ? result : show_tree ? tree : result;
+        }
       default:
         return tree;
     }
