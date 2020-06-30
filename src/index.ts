@@ -22,7 +22,7 @@ const i18nTranslatorForJsonTemplates = (
       case 'Object':
       case 'Array':
         return R.map(dfs, tree);
-      case 'String': show_tree ? undefined : ""
+      case 'String':
         if (tree.match(pattern)) {
           const result = path(language_json)(patternRemover(tree));
           return result !== undefined ? result : show_tree ? tree : result;
